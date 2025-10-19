@@ -1,6 +1,8 @@
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import type { Note } from '@/lib/types';
 import { formatDate, getAvatarColor } from '@/lib/utils';
+import { FileIcon, ImageIcon } from 'lucide-react-native';
 import { Pressable, View } from 'react-native';
 
 interface NoteCardProps {
@@ -11,6 +13,8 @@ interface NoteCardProps {
 export function NoteCard({ note, onPress }: NoteCardProps) {
   const firstLetter = note.heading.charAt(0).toUpperCase() || '?';
   const avatarColor = getAvatarColor(firstLetter);
+  const hasImages = note.images && note.images.length > 0;
+  const hasFiles = note.files && note.files.length > 0;
 
   return (
     <Pressable
@@ -29,9 +33,27 @@ export function NoteCard({ note, onPress }: NoteCardProps) {
             </Text>
             <Text className="ml-2 text-xs text-muted-foreground">{formatDate(note.updatedAt)}</Text>
           </View>
-          <Text className="text-sm text-muted-foreground" numberOfLines={2}>
-            {note.description}
-          </Text>
+          <View className="flex-row items-center justify-between">
+            <Text className="flex-1 text-sm text-muted-foreground" numberOfLines={2}>
+              {note.description}
+            </Text>
+          </View>
+          {(hasImages || hasFiles) && (
+            <View className="mt-1 flex-row gap-3">
+              {hasImages && (
+                <View className="flex-row items-center gap-1">
+                  <Icon as={ImageIcon} className="size-3 text-muted-foreground" />
+                  <Text className="text-xs text-muted-foreground">{note.images!.length}</Text>
+                </View>
+              )}
+              {hasFiles && (
+                <View className="flex-row items-center gap-1">
+                  <Icon as={FileIcon} className="size-3 text-muted-foreground" />
+                  <Text className="text-xs text-muted-foreground">{note.files!.length}</Text>
+                </View>
+              )}
+            </View>
+          )}
         </View>
       </View>
     </Pressable>
