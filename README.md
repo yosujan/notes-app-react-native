@@ -7,6 +7,29 @@
   <img src="/readme-images/note-light.PNG" width="24%" />
 </p>
 
+## Quick Start
+
+### Clone and Run
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd mobile-app
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+The Expo Dev Server will start. You can then:
+
+- Press `i` to open iOS simulator (Mac only)
+- Press `a` to open Android emulator
+- Press `w` to run in browser
+- Scan the QR code with Expo Go app on your phone
+
 # Minimal Template
 
 This is a [React Native](https://reactnative.dev/) project built with [Expo](https://expo.dev/) and [React Native Reusables](https://reactnativereusables.com).
