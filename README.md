@@ -1,3 +1,12 @@
+# App Preview
+
+<p float="left">
+  <img src="/readme-images/home.PNG" width="24%" />
+  <img src="/readme-images/home-light.PNG" width="24%" />
+  <img src="/readme-images/note.PNG" width="24%" />
+  <img src="/readme-images/note-light.PNG" width="24%" />
+</p>
+
 # Minimal Template
 
 This is a [React Native](https://reactnative.dev/) project built with [Expo](https://expo.dev/) and [React Native Reusables](https://reactnativereusables.com).
